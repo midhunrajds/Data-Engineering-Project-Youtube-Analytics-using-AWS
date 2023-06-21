@@ -45,6 +45,8 @@
 ## Overview
 This project focuses on performing YouTube data analytics using the AWS platform. The goal is to extract insights from a raw dataset consisting of unstructured JSON and CSV files and create a comprehensive analytics report. The project involves various steps, including data processing, conversion, cleaning, and building an analytics pipeline. 
 
+![data architecture](assets/dataarch.png)
+
 
 ## Data Processing
 
@@ -61,10 +63,14 @@ Used the AWS CLI to upload the raw JSON and CSV files to AWS S3 Buckets.
    
 ```aws s3 cp <source_file_path> s3://<bucket_name>/<destination_file_path>```
 
+![s3 data ingestion](assets/s3datain.png)
 
 
 ### 2. Creating IAM Role
 Set up an IAM role for the project with the necessary permissions, including S3 admin access and Glue service access roles.
+
+![IAM role](assets/iam.png)
+
 
 ### 3. AWS Glue Catalog
 Utilized the AWS Glue Catalog to perform data processing tasks. Created a database in the catalog and ran a crawler to generate a data catalog from the uploaded files.
@@ -75,7 +81,13 @@ AWS Glue Catalog is a fully managed metadata repository that allows to create an
 
 2. **Run a Crawler**: To generate a data catalog from the uploaded files, run an AWS Glue crawler. A crawler is an AWS Glue component that scans data sources, extracts metadata, and creates or updates tables in the AWS Glue Data Catalog.
 
+![crawler](assets/crawler.png)
+
+
 3. **Crawler Output**: After the crawler completes, it populates the AWS Glue Data Catalog with table definitions, schemas, and other metadata extracted from the files. This information becomes accessible for querying and further processing.
+
+![database](assets/db1.png)
+
 
 With the AWS Glue Catalog, we can now perform various data processing tasks on the cataloged data, such as querying the data using AWS Athena, transforming the data using AWS Glue ETL jobs, or visualizing the data using other AWS services like Amazon QuickSight.
 
@@ -113,9 +125,15 @@ AWS Lambda is a serverless computing service that allows us to run code without 
 
 3. **Code Implementation**: The Python code is written to handle the conversion process. Libraries like `pandas`, `pyarrow`, or AWS Glue Data Wrangler can be used to perform the conversion from JSON to Parquet. The code includes the logic to read the JSON files, perform the conversion, and write the resulting Parquet files.
 
+![lambda1](assets/lambdafun.png)
+
+
 4. **Testing**: It is crucial to test the Lambda function to ensure its functionality before deploying it to production. Test cases are created to validate the conversion process, including handling different file sizes, data structures, and edge cases. The Lambda function was tested locally by invoking it with test events in the AWS Lambda console.
 
-5. **Deployment**: Once the Lambda function is tested and functioning as expected, it is deployed to the AWS Lambda service. The function is associated with the appropriate IAM role, and the necessary configurations are set, such as the trigger for when the function should execute.
+![lambda2](assets/lambdatest.png)
+
+
+6. **Deployment**: Once the Lambda function is tested and functioning as expected, it is deployed to the AWS Lambda service. The function is associated with the appropriate IAM role, and the necessary configurations are set, such as the trigger for when the function should execute.
 
 By developing an AWS Lambda function in Python for JSON to Parquet conversion and testing its functionality, we can automate the conversion process and leverage the benefits of Parquet, such as columnar storage and efficient data compression. This enables faster query performance and reduced storage costs when working with large datasets.
 
@@ -173,6 +191,8 @@ AWS Glue Studio is a visual interface provided by AWS Glue that simplifies the p
 4. **Configuring Output and Data Storage**: Specify the output location and format for the analytics report layer. This case a new bucket in AWS S3, and the preferred format is Apache Parquet with Snappy compression, which offers efficient storage and query performance.
 
 6. **Running and Monitoring the Workflow**: After configuring the workflow in AWS Glue Studio, executed and monitored the data preparation and transformation workflow. AWS Glue Studio provides visibility into job runs, logs, and metrics to monitor the progress and performance of the analytics report layer construction.
+
+![etl](assets/etl1.png)
 
 
 [Go back to top](#top)
@@ -232,11 +252,16 @@ Download and install the appropriate JDBC driver provided by Amazon for Tableau.
 - Drag and drop the fields from the table onto the Tableau canvas to visualize and analyze the data.
 - Utilize Tableau's features and functionalities to create visualizations, apply filters, add calculations, and build an interactive dashboard.
 
+![Tableuserver](assets/athtab.png)
+
+
 ### 4. Publish Dashboard on GitHub
 
 - Exported the Tableau dashboard.
 
 The result was an interactive dashboard created using Tableau, connected to AWS Athena. The dashboard allows for data analysis, exploration, and visualization based on the selected data from the AWS Athena Data Catalog.
+
+![Dashboard](assets/Dashboard1-4.png)
 
 
 ## Conclusion
