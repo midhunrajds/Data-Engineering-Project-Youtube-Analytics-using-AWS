@@ -6,13 +6,14 @@
 [![AWS S3](https://img.shields.io/badge/AWS-S3-blue?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/s3/)
 [![AWS Glue](https://img.shields.io/badge/AWS-Glue-lightgrey?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/glue/)
 [![AWS Glue Studio](https://img.shields.io/badge/AWS-Glue_Studio-lightgrey?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/glue/)
-[![Amazon QuickSight](https://img.shields.io/badge/Amazon-QuickSight-yellow?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/quicksight/)
 [![AWS CLI](https://img.shields.io/badge/AWS-CLI-black?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/cli/)
 [![Amazon Athena](https://img.shields.io/badge/Amazon-Athena-lightblue?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/athena/)
 [![AWS Glue Crawler](https://img.shields.io/badge/AWS-Glue_Crawler-lightgrey?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/glue/)
 [![PySpark](https://img.shields.io/badge/PySpark-yellow?logo=apache-spark&logoColor=white)](https://spark.apache.org/docs/latest/api/python/)
 [![AWS Glue DataBrew](https://img.shields.io/badge/AWS-Glue_DataBrew-lightgrey?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/glue/data-brew/)
 [![AWS Glue DynamicFrame](https://img.shields.io/badge/AWS-Glue_DynamicFrame-lightgrey?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/glue/)
+[![Tableau Professional](https://img.shields.io/badge/Tableau-Professional-orange)](https://www.tableau.com/professional-certification)
+
 
 
 
@@ -38,7 +39,7 @@
    - [4. Building Analytics Pipeline](#4-building-analytics-pipeline)
    - [5. Analytic Data Storage](#5-analytic-data-storage)
    - [6. Creating Analytics Database](#6-creating-analytics-database)
-   - [7. Quicksight Dashboard](#7-quicksight-dashboard)
+   - [7. Tableau Dashboard](#7-tableau-dashboard)
 - [Conclusion](#conclusion)
 
 ## Overview
@@ -196,25 +197,50 @@ Established a new database within the AWS Data Catalog specifically for the anal
 
 [Go back to top](#)
 
-### 7. Quicksight Dashboard
-Signed up for Amazon Quicksight and build a dataset using the S3 source and Athena. Selected the relevant database and construct a dashboard to visualize the data and gain valuable insights.
+### 7. Tableau Dashboard 
 
-Amazon QuickSight is a powerful data visualization tool provided by AWS that allows you to explore, analyze, and gain insights from your data. 
-Here's a breakdown of the process:
+### Connecting Tableau to AWS Athena and Creating Interactive Dashboards
 
-1. **Signing up for Amazon QuickSight**: This process involves providing the necessary details and setting up your QuickSight account.
+Process of connecting Tableau to AWS Athena, accessing data from the AWS Athena Data Catalog, and creating an interactive dashboard for data analysis.
 
-2. **Building a Dataset**: Start by selecting the S3 source as your data source, which allows you to connect to the data stored in your S3 buckets. Then, choose Athena as the query engine to interact with the data and perform SQL queries.
+## Prerequisites
 
-3. **Selecting the Relevant Database**: Within QuickSight, you can choose the relevant database that you created earlier using Athena. This enables you to access the cleaned and transformed data for visualization purposes.
+- Tableau Desktop installed on macOS
+- JDBC Driver for Tableau 
+- AWS account with access to AWS Athena
+- AWS region availability endpoint code
+- S3 staging URL
+- AWS access key ID and secret access key
 
-4. **Constructing a Dashboard**: Once the dataset is established, you can start building a dashboard using the QuickSight interface. This involves selecting the desired visualizations, such as charts, graphs, and tables, and configuring them based on your data and analysis requirements. QuickSight offers a range of visualization options and customization features to create visually appealing and insightful dashboards.
+## Steps
 
-5. **Gaining Valuable Insights**: With the dashboard in place, you can explore your data visually and gain valuable insights. Interact with the visualizations, apply filters, and drill down into specific data points to uncover patterns, trends, and anomalies. QuickSight's interactive nature allows you to dynamically explore and analyze your data, facilitating data-driven decision-making.
+### 1. Installed JDBC Driver
+
+Download and install the appropriate JDBC driver provided by Amazon for Tableau.
+
+### 2. Connected Tableau to AWS Athena
+
+- Launch Tableau Desktop.
+- Click on "Connect to Data" and select "Athena" from the data sources list.
+- Enter the AWS region availability endpoint code, S3 staging URL, access key ID, and secret access key.
+- Test the connection to verify successful authentication and authorization.
+
+### 3. Access Data and Perform Analysis
+
+- Selected the desired database from the AWS Athena Data Catalog in the Tableau interface.
+- Choose the table to analyze within the selected database.
+- Drag and drop the fields from the table onto the Tableau canvas to visualize and analyze the data.
+- Utilize Tableau's features and functionalities to create visualizations, apply filters, add calculations, and build an interactive dashboard.
+
+### 4. Publish Dashboard on GitHub
+
+- Exported the Tableau dashboard.
+
+The result was an interactive dashboard created using Tableau, connected to AWS Athena. The dashboard allows for data analysis, exploration, and visualization based on the selected data from the AWS Athena Data Catalog.
 
 
 ## Conclusion
-By following the detailed steps outlined above, you will be able to perform YouTube data analytics using the AWS platform. This project showcases the use of various AWS services, such as S3, Glue, Lambda, Athena, and Quicksight, to process, clean, transform, and visualize the data. The end result is a comprehensive analytics report that provides valuable insights into the YouTube dataset.
+By following the detailed steps outlined above, I was able to perform YouTube data analytics using the AWS platform. This project showcases the use of various AWS services, such as S3, Glue, Lambda, Athena, to process, clean, transform, and Tableau to visualize the data. The end result is a comprehensive analytics report that provides valuable insights into the YouTube dataset.
 
 [Go back to top](#top)
 
