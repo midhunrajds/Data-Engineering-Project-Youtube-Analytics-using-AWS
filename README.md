@@ -117,6 +117,8 @@ Developed an AWS Lambda function using Python to convert the processed JSON file
 ### 6. AWS Lambda Function Configuration
 Created a new role with the necessary permissions and configure the AWS Lambda function. Add the AWS Data Wrangler layer to the Lambda code for improved functionality.
 
+![layer](assets/lambdalayer.png)
+
 AWS Lambda is a serverless computing service that allows us to run code without provisioning or managing servers. In this project, an AWS Lambda function is developed using Python to convert the processed JSON files into the Apache Parquet format. Here's an overview of the process:
 
 1. **Function Development**: Using the AWS Management Console the AWS Lambda function is created. Python is the chosen programming language for this function.
@@ -127,6 +129,7 @@ AWS Lambda is a serverless computing service that allows us to run code without 
 
 ![lambda1](assets/lambdafun.png)
 
+[Code](codes/lambda.py)
 
 4. **Testing**: It is crucial to test the Lambda function to ensure its functionality before deploying it to production. Test cases are created to validate the conversion process, including handling different file sizes, data structures, and edge cases. The Lambda function was tested locally by invoking it with test events in the AWS Lambda console.
 
@@ -142,6 +145,8 @@ By developing an AWS Lambda function in Python for JSON to Parquet conversion an
 
 ### 7. Data Cleaning
 Utilized Athena to query and clean the converted JSON data. 
+
+![Dataclean](assets/dataclean.png)
 
 ### Querying and Cleaning Converted JSON Data with Athena
 
@@ -160,6 +165,9 @@ Set up a new bucket for data processing, including schema conversion and partiti
 
 ### 1. ETL Job
 Developed an ETL job using PySpark scripts on AWS Glue to convert all the raw files (CSV and JSON) into the desired output schema. Configured the necessary script for partition keys.
+
+![csvtoparquet](assets/csvconvert.png)
+[Code](codes/csv_parquet.py)
 
 ### 2. Triggering Lambda Function
 Added a trigger to the Lambda function to automatically execute whenever new JSON data is uploaded to the S3 raw file bucket. This ensures continuous data processing.
@@ -261,7 +269,7 @@ Download and install the appropriate JDBC driver provided by Amazon for Tableau.
 
 The result was an interactive dashboard created using Tableau, connected to AWS Athena. The dashboard allows for data analysis, exploration, and visualization based on the selected data from the AWS Athena Data Catalog.
 
-![Dashboard](assets/Dashboard1-4.png)
+![Dashboard](assets/Dashboard%201-4.png)
 
 
 ## Conclusion
